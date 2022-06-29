@@ -10,10 +10,12 @@
 
     <com.google.android.gms.ads.AdView
         android:id="@+id/adView"
-        app:adSize="BANNER"
-        app:adUnitId="ca-app-pub-5731617966661624/3763795009"
         android:layout_width="0dp"
-        android:layout_height="wrap_content"
+        android:layout_height="298dp"
+        android:layout_marginBottom="30dp"
+        app:adSize="BANNER"
+        app:adUnitId="ca-app-pub-3940256099942544/6300978111"
+        app:layout_constraintBottom_toTopOf="@+id/openSuperHeroList"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent" />
@@ -22,18 +24,18 @@
         android:id="@+id/openSuperHeroList"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginTop="328dp"
-        android:text="SuperHeroes"
+        android:layout_marginTop="20dp"
+        android:text="@string/superHerRes"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.498"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="@+id/adView" />
+        app:layout_constraintTop_toBottomOf="@+id/adView" />
 
     <Button
         android:id="@+id/aboutBtn"
         android:layout_width="0dp"
         android:layout_height="wrap_content"
-        android:text="About"
+        android:text="@string/aBout"
         app:layout_constraintEnd_toEndOf="@+id/openSuperHeroList"
         app:layout_constraintStart_toStartOf="@+id/openSuperHeroList"
         app:layout_constraintTop_toBottomOf="@+id/openSuperHeroList" />

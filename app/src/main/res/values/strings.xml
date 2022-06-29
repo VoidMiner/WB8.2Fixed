@@ -9,4 +9,6 @@
     <string name="backBtn">back</string>
     <string name="author">Sergey Strchan</string>
     <string name="github">github.com/VoidMiner</string>
+    <string name="superHerRes">SuperHeroes</string>
+    <string name="aBout">About</string>
 </resources>
