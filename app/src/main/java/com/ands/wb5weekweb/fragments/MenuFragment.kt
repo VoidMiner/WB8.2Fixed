@@ -5,9 +5,11 @@ import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import androidx.fragment.app.Fragment
-import androidx.navigation.Navigation
-import com.ands.wb5weekweb.R
 import com.ands.wb5weekweb.databinding.FragmentMenuBinding
+import com.ands.wb5weekweb.di.App
+import com.ands.wb5weekweb.utils.Screens
+import com.google.android.gms.ads.AdRequest
+import com.google.android.gms.ads.MobileAds
 import dagger.hilt.android.AndroidEntryPoint
 
 @AndroidEntryPoint
@@ -25,24 +27,34 @@ class MenuFragment : Fragment() {
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
-        binding.openDotaList.setOnClickListener() {
-            Navigation.findNavController(binding.root)
-                .navigate(R.id.action_menuFragment_to_heroesFragment)
-        }
-
+        initAdMob()
         binding.openSuperHeroList.setOnClickListener() {
-            Navigation.findNavController(binding.root)
-                .navigate(R.id.action_menuFragment_to_superHeroesFragment)
+            App.INSTANCE.router.navigateTo(Screens.superHeroesScreen())
         }
 
-        binding.openTinder.setOnClickListener() {
-            Navigation.findNavController(binding.root)
-                .navigate(R.id.action_menuFragment_to_tinderFragment)
-        }
         binding.aboutBtn.setOnClickListener {
-            Navigation.findNavController(binding.root)
-                .navigate(R.id.action_menuFragment_to_aboutFragment)
+            App.INSTANCE.router.navigateTo(Screens.aboutScreen())
         }
+    }
+    override fun onResume() {
+        super.onResume()
+        binding.adView.resume()
+    }
+
+    override fun onPause() {
+        super.onPause()
+        binding.adView.pause()
+    }
+
+    private fun initAdMob(){// тестовый баннер не работают на территории РФ из-за санкций
+        MobileAds.initialize(requireContext())
+        val adRequest = AdRequest.Builder().build()
+        binding.adView.loadAd(adRequest)
+    }
+
+    override fun onDestroyView() {
+        super.onDestroyView()
+        binding.adView.destroy()
     }
 
 }

@@ -5,9 +5,9 @@ import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import androidx.fragment.app.Fragment
-import androidx.navigation.Navigation
-import com.ands.wb5weekweb.R
 import com.ands.wb5weekweb.databinding.FragmentAboutBinding
+import com.ands.wb5weekweb.di.App
+import com.ands.wb5weekweb.utils.Screens
 import dagger.hilt.android.AndroidEntryPoint
 
 @AndroidEntryPoint
@@ -27,7 +27,7 @@ class AboutFragment : Fragment() {
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
         binding.backBtn.setOnClickListener {
-            Navigation.findNavController(binding.root).popBackStack()
+            App.INSTANCE.router.backTo(Screens.menuScreen())
             //requireActivity().onBackPressed()
         }
     }

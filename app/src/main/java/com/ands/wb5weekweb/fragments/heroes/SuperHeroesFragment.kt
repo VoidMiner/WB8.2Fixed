@@ -7,7 +7,6 @@ import android.view.View
 import android.view.ViewGroup
 import androidx.fragment.app.Fragment
 import androidx.fragment.app.viewModels
-import androidx.navigation.Navigation
 import androidx.recyclerview.widget.LinearLayoutManager
 import com.ands.wb5weekweb.adapters.SuperHeroesAdapter
 import com.ands.wb5weekweb.databinding.FragmentSuperHeroesBinding
@@ -15,7 +14,6 @@ import com.ands.wb5weekweb.di.App
 import com.ands.wb5weekweb.model.heroes.CommonHeroesStats
 import com.ands.wb5weekweb.utils.Screens
 import com.ands.wb5weekweb.viewmodels.heroes.SuperHeroesViewModel
-import com.github.terrakok.cicerone.Screen
 import dagger.hilt.android.AndroidEntryPoint
 
 @AndroidEntryPoint
@@ -64,12 +62,8 @@ class SuperHeroesFragment : Fragment() {
                 name = it.name
             )
 
-            App.INSTANCE.router.navigateTo(Screens.descriptionScreen(commonHeroesStats))//cicerone
-            Log.e("SUPERHEROESFRAGMENT", "Cicerone navigation is working")
+            App.INSTANCE.router.navigateTo(Screens.descriptionScreen(commonHeroesStats))
 
-//            val action = SuperHeroesFragmentDirections.actionSuperHeroesFragmentToDescriptionFragment(commonHeroesStats)
-//
-//            Navigation.findNavController(binding.root).navigate(action)
         }
     }
 

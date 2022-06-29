@@ -8,7 +8,7 @@ data class SuperHeroesResponse(
     val name: String,
     val images: Images,
     @SerializedName("powerstats", alternate = arrayOf("powerStats", "PowerStats"))
-    val powerstats: PowerStats//не хочет рабоатть с другим именем..поэтому оставил powerstats
+    val powerstats: PowerStats
 
 )
 

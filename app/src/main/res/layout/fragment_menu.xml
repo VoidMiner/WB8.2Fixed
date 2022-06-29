@@ -1,34 +1,41 @@
 <?xml version="1.0" encoding="utf-8"?>
-<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/linearLayout"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:orientation="vertical"
-    tools:context=".fragments.MenuFragment"
     android:gravity="center"
-    >
+    tools:context=".fragments.MenuFragment">
 
-    <Button
-        android:id="@+id/openDotaList"
-        android:layout_width="250dp"
+    <com.google.android.gms.ads.AdView
+        android:id="@+id/adView"
+        app:adSize="BANNER"
+        app:adUnitId="ca-app-pub-5731617966661624/3763795009"
+        android:layout_width="0dp"
         android:layout_height="wrap_content"
-        android:layout_gravity="center"
-        android:text="Dota Heroes List" />
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
 
     <Button
         android:id="@+id/openSuperHeroList"
-        android:layout_width="250dp"
+        android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="SuperHeroes" />
+        android:layout_marginTop="328dp"
+        android:text="SuperHeroes"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.498"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="@+id/adView" />
 
     <Button
-        android:id="@+id/openTinder"
-        android:layout_width="250dp"
-        android:layout_height="wrap_content"
-        android:text="Tinder" />
-    <Button
         android:id="@+id/aboutBtn"
-        android:layout_width="250dp"
+        android:layout_width="0dp"
         android:layout_height="wrap_content"
-        android:text="About" />
-</LinearLayout>
+        android:text="About"
+        app:layout_constraintEnd_toEndOf="@+id/openSuperHeroList"
+        app:layout_constraintStart_toStartOf="@+id/openSuperHeroList"
+        app:layout_constraintTop_toBottomOf="@+id/openSuperHeroList" />
+
+</androidx.constraintlayout.widget.ConstraintLayout>

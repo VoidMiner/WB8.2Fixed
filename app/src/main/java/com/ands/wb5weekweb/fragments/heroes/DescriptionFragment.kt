@@ -10,7 +10,9 @@ import coil.load
 import coil.size.Scale
 import com.ands.wb5weekweb.R
 import com.ands.wb5weekweb.databinding.FragmentDescriptionBinding
+import com.ands.wb5weekweb.di.App
 import com.ands.wb5weekweb.model.heroes.CommonHeroesStats
+import com.ands.wb5weekweb.utils.Screens
 import dagger.hilt.android.AndroidEntryPoint
 
 @AndroidEntryPoint
@@ -33,6 +35,9 @@ class DescriptionFragment : Fragment() {
         super.onViewCreated(view, savedInstanceState)
         loadScreenSize()
         setupDescription()
+        binding.backBtn.setOnClickListener() {
+            App.INSTANCE.router.backTo(Screens.superHeroesScreen())
+        }
     }
 
     private fun loadScreenSize() {
@@ -53,20 +58,6 @@ class DescriptionFragment : Fragment() {
 
         val args = argument.getParcelable<CommonHeroesStats>(COMMON_STATS) ?: throw IllegalArgumentException("null argument")
 
-        //TODO Плменять в 54 строке CommonHeroesStats на SuperHeroesReponse
-        //TODO Сделать получение данных из DescriptionViewModel через LiveData
-        //TODO ТУТ их замапить к CommonHeroesStats
-        //TODO Отобразить их
-
-        //TODO Сделать кнопки для переключения элемента(и 2 функции для этого)
-        //TODO в каждой из функций дергать ту функцию из viewModel для получение
-        // следующего/предыдущего героя(следующий id передавать в агрументы функции).
-
-
-
-//        else {
-//            DescriptionFragmentArgs.fromBundle(requireArguments()).commonHeroesStats
-//        }
 
         binding.apply {
 
